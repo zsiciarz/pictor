@@ -7,7 +7,7 @@ $loader->register();
 
 try
 {
-    $img = new \Pictor\Image();
+    $img = new \Pictor\Image('img/lena.png');
     var_dump($img);
 }
 catch (\Pictor\Exception $e)

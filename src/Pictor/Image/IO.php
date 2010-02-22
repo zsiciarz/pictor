@@ -7,7 +7,7 @@ namespace Pictor\Image;
  *
  * @author Zbyszek
  */
-class IO
+abstract class IO
 {
     static function getIO($filename)
     {
