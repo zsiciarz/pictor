@@ -33,6 +33,17 @@ class Image
     }
 
     /**
+     * Frees memory used by image object.
+     */
+    public function  __destruct()
+    {
+        if (is_resource($this->handle))
+        {
+            imagedestroy($this->handle);
+        }
+    }
+
+    /**
      * Loads the image from a given file.
      *
      * @param string $filename path to the file
