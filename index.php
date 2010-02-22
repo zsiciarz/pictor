@@ -10,7 +10,6 @@ try
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->rotate(-33)
-        ->save('img/lena2.png')
         ->show();
 }
 catch (\Pictor\Exception $e)
