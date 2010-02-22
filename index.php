@@ -1,3 +1,6 @@
 <?php
+error_reporting(E_ALL);
 
-echo 'Test ';
+require_once 'src/Pictor/Image.php';
+$img = new \Pictor\Image();
+var_dump($img);
