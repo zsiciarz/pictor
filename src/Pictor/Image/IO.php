@@ -40,5 +40,12 @@ abstract class IO
      * @param string $filename path to file
      */
     abstract public function save($img, $filename);
+
+    /**
+     * Displays the image in the browser.
+     *
+     * @param resource $img image handle
+     */
+    abstract public function show($img);
 }
 

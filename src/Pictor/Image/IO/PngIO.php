@@ -29,4 +29,15 @@ class PngIO extends \Pictor\Image\IO
     {
         return imagepng($img, $filename);
     }
+
+    /**
+     * Displays the image in the browser.
+     *
+     * @param resource $img image handle
+     */
+    public function show($img)
+    {
+        header('Content-type: image/png');
+        imagepng($img);
+    }
 }

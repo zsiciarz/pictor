@@ -3,7 +3,7 @@
 namespace Pictor;
 
 /**
- * Description of Image
+ * Image class.
  *
  * @author Zbyszek
  */
@@ -61,6 +61,23 @@ class Image
 
         return $this;
     }
+
+    public function show()
+    {
+        $this->io->show($this->handle);
+
+        return $this;
+    }
+
+    public function rotate($degrees)
+    {
+        if ($degrees < 0.0)
+        {
+            $degrees = 360.0 - $degrees;
+        }
+
+        $this->handle = imagerotate($this->handle, $degrees, 0);
+
+        return $this;
+    }
 }
-
-

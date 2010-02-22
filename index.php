@@ -9,8 +9,9 @@ try
 {
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
-        ->save('img/lena2.png');
-    var_dump($img);
+        ->rotate(-33)
+        ->save('img/lena2.png')
+        ->show();
 }
 catch (\Pictor\Exception $e)
 {
