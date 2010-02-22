@@ -19,6 +19,11 @@ class Image
      */
     protected $io = null;
 
+    /**
+     * Creates an Image object and optionally loads the file.
+     *
+     * @param string $filename path to the file
+     */
     public function __construct($filename = '')
     {
         if (!empty($filename))
@@ -27,6 +32,12 @@ class Image
         }
     }
 
+    /**
+     * Loads the image from a given file.
+     *
+     * @param string $filename path to the file
+     * @return \Pictor\Image for fluent interface
+     */
     public function load($filename)
     {
         if (!is_null($this->io = Image\IO::getIO($filename)))
@@ -38,6 +49,12 @@ class Image
         return $this;
     }
 
+    /**
+     * Saves the image to a file.
+     *
+     * @param string $filename path to the file
+     * @return \Pictor\Image for fluent interface
+     */
     public function save($filename)
     {
         $this->io->save($this->handle, $filename);
