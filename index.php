@@ -10,7 +10,9 @@ try
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->invert()
+        ->filter('gaussian_blur')
         ->rotate(-33)
+        ->filter('contrast', 300)
         ->show();
 }
 catch (\Pictor\Exception $e)

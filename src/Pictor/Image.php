@@ -109,4 +109,15 @@ class Image
 
         return $this;
     }
+
+    public function filter()
+    {
+        $args = func_get_args();
+        $filter = array_shift($args);
+        $filter = constant('IMG_FILTER_'.strtoupper($filter));
+        array_unshift($args, $this->handle, $filter);
+        call_user_func_array('imagefilter', $args);
+
+        return $this;
+    }
 }
