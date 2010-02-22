@@ -102,4 +102,11 @@ class Image
 
         return $this;
     }
+
+    public function invert()
+    {
+        imagefilter($this->handle, IMG_FILTER_NEGATE);
+
+        return $this;
+    }
 }

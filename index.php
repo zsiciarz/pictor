@@ -9,6 +9,7 @@ try
 {
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
+        ->invert()
         ->rotate(-33)
         ->show();
 }
