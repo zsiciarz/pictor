@@ -23,11 +23,22 @@ class Image
     {
         if (!empty($filename))
         {
-            if (!is_null($this->io = Image\IO::getIO($filename)))
-            {
-                $this->io->load($filename);
-            }
+            $this->load($filename);
         }
+    }
+
+    public function load($filename)
+    {
+        if (!is_null($this->io = Image\IO::getIO($filename)))
+        {
+            $this->handle = $this->io->load($filename);
+            $this->filename = $filename;
+        }
+    }
+
+    public function save($filename)
+    {
+        $this->io->save($this->handle, $filename);
     }
 }
 
