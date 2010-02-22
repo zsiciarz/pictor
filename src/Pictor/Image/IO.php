@@ -9,15 +9,18 @@ namespace Pictor\Image;
  */
 abstract class IO
 {
-    static function getIO($filename)
+    static public function getIO($filename)
     {
         $parts = pathinfo($filename);
         $ext = $parts['extension'];
+
+        if ('jpeg' == $ext)
+            $ext = 'jpg';
         
-        switch ($ext)
+        $className = __NAMESPACE__.'\\IO\\'.ucfirst($ext).'IO';
+        if (class_exists($className))
         {
-        case 'png':
-            return new IO\PngIO();
+            return new $className();
         }
 
         return null;

@@ -34,11 +34,15 @@ class Image
             $this->handle = $this->io->load($filename);
             $this->filename = $filename;
         }
+
+        return $this;
     }
 
     public function save($filename)
     {
         $this->io->save($this->handle, $filename);
+
+        return $this;
     }
 }
 
