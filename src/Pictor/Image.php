@@ -73,6 +73,11 @@ class Image
         return $this;
     }
 
+    /**
+     * Displays the image to the browser.
+     * 
+     * @return \Pictor\Image for fluent interface
+     */
     public function show()
     {
         $this->io->show($this->handle);
@@ -80,6 +85,12 @@ class Image
         return $this;
     }
 
+    /**
+     * Rotates the image by a given angle.
+     * 
+     * @param degrees rotation angle
+     * @return \Pictor\Image for fluent interface
+     */
     public function rotate($degrees)
     {
         if ($degrees < 0.0)
