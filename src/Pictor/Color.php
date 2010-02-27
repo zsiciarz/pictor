@@ -33,7 +33,7 @@ class Color
             list($r, $g, $b) = array($color[0].$color[0], $color[1].$color[1], $color[2].$color[2]);
         }
         else
-            return false;
+            throw new Exception(sprintf('Cannot convert from %s to RGB!', $color));
 
         return array(hexdec($r), hexdec($b), hexdec($b));
     }
