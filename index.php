@@ -10,6 +10,11 @@ try
     $red =  new \Pictor\Color(255, 0, 0);
     $green = new \Pictor\Color(array(0, 255, 0));
     $blue = new \Pictor\Color('#00F');
+    $points = array(
+      300, 0,
+      320, 50,
+      280, 100
+    );
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->invert()
@@ -19,6 +24,7 @@ try
         ->drawRectangle(30, 30, 100, 120, $blue)
         ->filter('contrast', 300)
         ->drawEllipse(250, 250, 30, 30, $green, true)
+        ->drawPolygon($points, $red)
         ->show();
 }
 catch (\Pictor\Exception $e)
