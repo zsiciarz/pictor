@@ -85,6 +85,13 @@ class Image
         return $this;
     }
 
+    public function setAntialiasing($antialiasing = false)
+    {
+        imageantialias($this->handle,   true);
+
+        return $this;
+    }
+
     /**
      * Rotates the image by a given angle.
      * 
