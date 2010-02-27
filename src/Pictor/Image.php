@@ -132,4 +132,16 @@ class Image
 
         return $this;
     }
+
+    public function drawEllipse($cx, $cy, $width, $height, $color = null, $fill = false)
+    {
+        if (!($color instanceof Color))
+            $color = Color($color);
+
+        $drawfunc = $fill ? 'imagefilledellipse' : 'imageellipse';
+        $drawfunc($this->handle, $cx, $cy, $width, $height,
+                  $color->allocate($this->handle));
+
+        return $this;
+    }
 }
