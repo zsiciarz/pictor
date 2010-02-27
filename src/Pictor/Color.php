@@ -39,6 +39,21 @@ class Color
     }
 
     /**
+     * Converts an RGB integer value to a Color object.
+     *
+     * @param integer $value
+     * @return Color
+     */
+    public static function fromInteger($value)
+    {
+        $r = ($value >> 16) & 0xFF;
+        $g = ($value >> 8) & 0xFF;
+        $b = $value & 0xFF;
+
+        return new Color($r, $g, $b);
+    }
+
+    /**
      * Creates the color object.
      *
      * If the first param is a HTML/CSS hex color, it is converted to RGB
