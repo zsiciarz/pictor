@@ -144,4 +144,16 @@ class Image
 
         return $this;
     }
+
+    public function drawPolygon($points, $color = null, $fill = false)
+    {
+        if (!($color instanceof Color))
+            $color = Color($color);
+
+        $drawfunc = $fill ? 'imagefilledpolygon' : 'imagepolygon';
+        $drawfunc($this->handle, $points, count($points) / 2,
+                  $color->allocate($this->handle));
+
+        return $this;
+    }
 }
