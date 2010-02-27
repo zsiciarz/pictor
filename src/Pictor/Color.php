@@ -35,7 +35,7 @@ class Color
         else
             throw new Exception(sprintf('Cannot convert from %s to RGB!', $color));
 
-        return array(hexdec($r), hexdec($b), hexdec($b));
+        return array(hexdec($r), hexdec($g), hexdec($b));
     }
 
     /**
@@ -66,6 +66,11 @@ class Color
         }
 
         list($this->r, $this->g, $this->b) = $colors;
+    }
+
+    public function allocate($img)
+    {
+        return imagecolorallocate($img, $this->r, $this->g, $this->b);
     }
 }
 
