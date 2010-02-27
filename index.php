@@ -7,6 +7,9 @@ $loader->register();
 
 try
 {
+    $red =  new \Pictor\Color(255, 0, 0);
+    $green = new \Pictor\Color(array(0, 255, 0));
+    $blue = new \Pictor\Color('#00F');
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->invert()
