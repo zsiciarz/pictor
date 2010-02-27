@@ -13,6 +13,7 @@ try
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->invert()
+        ->setAntialiasing(true)
         ->filter('gaussian_blur')
         ->rotate(-33)
         ->drawRectangle(30, 30, 100, 120, $blue)
