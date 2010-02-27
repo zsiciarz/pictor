@@ -120,4 +120,15 @@ class Image
 
         return $this;
     }
+
+    public function drawRectangle($x, $y, $width, $height, $color = null, $fill = false)
+    {
+        if (!($color instanceof Color))
+            $color = Color($color);
+        
+        imagerectangle($this->handle, $x, $y, $x + $width, $y + $height,
+                       $color->allocate($this->handle));
+
+        return $this;
+    }
 }
