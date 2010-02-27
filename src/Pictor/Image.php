@@ -85,6 +85,26 @@ class Image
         return $this;
     }
 
+    /**
+     * Returns the width of the image.
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return imagesx($this->handle);
+    }
+
+    /**
+     * Returns the height of the image.
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return imagesy($this->handle);
+    }
+
     public function setAntialiasing($antialiasing = false)
     {
         imageantialias($this->handle,   true);
