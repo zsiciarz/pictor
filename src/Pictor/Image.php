@@ -125,9 +125,22 @@ class Image
     {
         if (!($color instanceof Color))
             $color = Color($color);
-        
-        imagerectangle($this->handle, $x, $y, $x + $width, $y + $height,
-                       $color->allocate($this->handle));
+
+        $drawfunc = $fill ? 'imagefilledrectangle' : 'imagerectangle';
+        $drawfunc($this->handle, $x, $y, $x + $width, $y + $height,
+                  $color->allocate($this->handle));
+
+        return $this;
+    }
+
+    public function drawEllipse($cx, $cy, $width, $height, $color = null, $fill = false)
+    {
+        if (!($color instanceof Color))
+            $color = Color($color);
+
+        $drawfunc = $fill ? 'imagefilledellipse' : 'imageellipse';
+        $drawfunc($this->handle, $cx, $cy, $width, $height,
+                  $color->allocate($this->handle));
 
         return $this;
     }

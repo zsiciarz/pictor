@@ -17,6 +17,7 @@ try
         ->rotate(-33)
         ->drawRectangle(30, 30, 100, 120, $blue)
         ->filter('contrast', 300)
+        ->drawEllipse(250, 250, 30, 30, $green, true)
         ->show();
 }
 catch (\Pictor\Exception $e)
