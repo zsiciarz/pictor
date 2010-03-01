@@ -163,6 +163,19 @@ class Image
         return $this;
     }
 
+    public function resize(Size $newSize)
+    {
+        $img = imagecreatetruecolor($newSize->width, $newSize->height);
+        imagecopyresampled($img, $this->handle, 0, 0, 0, 0,
+                           $newSize->width, $newSize->height,
+                           $this->getWidth(), $this->getHeight());
+
+        imagedestroy($this->handle);
+        $this->handle = $img;
+
+        return $this;
+    }
+
     /**
      * Creates a negative image.
      * 
