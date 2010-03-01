@@ -106,9 +106,19 @@ class Image
     }
 
     /**
+     * Returns image dimensions as a Size object.
+     *
+     * @return \Pictor\Size
+     */
+    public function getSize()
+    {
+        return new Size($this->getWidth(), $this->getHeight());
+    }
+
+    /**
      * Returns the center point of the image.
      * 
-     * @return Point
+     * @return \Pictor\Point
      */
     public function getCenter()
     {
