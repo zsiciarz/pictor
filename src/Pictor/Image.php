@@ -223,4 +223,16 @@ class Image
 
         return $this;
     }
+
+    public function drawText(Point $position, $text, Font $font, $color, $angle = 0)
+    {
+        if (!($color instanceof Color))
+            $color = new Color($color);
+
+        imagettftext($this->handle, $font->getSize(), $angle,
+                     $position->x, $position->y,
+                     $color->allocate($this->handle), $font->getFontFile(), $text);
+
+        return $this;
+    }
 }
