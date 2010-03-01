@@ -11,7 +11,7 @@ try
 {
     $font = new \Pictor\Font('C:\\Windows\\fonts\\arial.ttf', 16);
     $verdana = new \Pictor\Font('C:\\Windows\\fonts\\verdana.ttf', 20);
-    $img = new \Pictor\Image();
+    $img = new \Pictor\Image(new Size(400, 400));
     $img->drawText($img->getCenter(), 'LENA', $font, 'F00')
         ->drawText(new Point(50, 50), 'Verdana', $verdana, '040', -25)
         ->show();
