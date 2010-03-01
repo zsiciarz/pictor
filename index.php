@@ -5,7 +5,7 @@ require_once 'src/Pictor/Loader.php';
 $loader = new \Pictor\Loader();
 $loader->register();
 
-use Pictor\Point as Point, Pictor\Size as Size;
+use \Pictor\Point as Point, \Pictor\Size as Size;
 
 try
 {
