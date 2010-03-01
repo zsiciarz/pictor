@@ -9,8 +9,7 @@ use Pictor\Point as Point, Pictor\Size as Size;
 
 try
 {
-    $img = new \Pictor\Image();
-    $img->load('img/lena.png');
+    $img = new \Pictor\Image(new Size(400, 400));
     $img->drawEllipse($img->getCenter(), new Size(10, 10), '#FF0', true);
     $img->show();
 }

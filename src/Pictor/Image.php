@@ -20,15 +20,15 @@ class Image
     protected $io = null;
 
     /**
-     * Creates an Image object and optionally loads the file.
+     * Creates an Image object.
      *
-     * @param string $filename path to the file
+     * @param Size $size initial size
      */
-    public function __construct($filename = '')
+    public function __construct(Size $size = null)
     {
-        if (!empty($filename))
+        if (!is_null($size))
         {
-            $this->load($filename);
+            $this->handle = imagecreatetruecolor($size->width, $size->height);
         }
     }
 
@@ -68,6 +68,9 @@ class Image
      */
     public function save($filename)
     {
+        if (is_null($this->io))
+            $this->io = Image\IO::getIO($filename);
+
         $this->io->save($this->handle, $filename);
 
         return $this;
@@ -75,11 +78,15 @@ class Image
 
     /**
      * Displays the image to the browser.
-     * 
+     *
+     * @param string $format optional format for images not read from disk
      * @return \Pictor\Image for fluent interface
      */
-    public function show()
+    public function show($format = 'png')
     {
+        if (is_null($this->io))
+            $this->io = Image\IO::getIO('dummy.'.$format);
+
         $this->io->show($this->handle);
 
         return $this;

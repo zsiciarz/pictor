@@ -65,7 +65,7 @@ class Color
      * @param int $g
      * @param int $b
      */
-    public function __construct($r, $g = 0, $b = 0)
+    public function __construct($r = 0, $g = 0, $b = 0)
     {
         if (is_string($r))
         {
