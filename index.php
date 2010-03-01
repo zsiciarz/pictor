@@ -5,6 +5,8 @@ require_once 'src/Pictor/Loader.php';
 $loader = new \Pictor\Loader();
 $loader->register();
 
+use Pictor\Point as Point, Pictor\Size as Size;
+
 try
 {
     $red =  new \Pictor\Color(255, 0, 0);
@@ -21,9 +23,9 @@ try
         ->setAntialiasing(true)
         ->filter('gaussian_blur')
         ->rotate(-33)
-        ->drawRectangle(30, 30, 100, 120, $blue)
+        ->drawRectangle(new Point(30, 30), new Size(120, 120), $blue)
         ->filter('contrast', 300)
-        ->drawEllipse(250, 250, 30, 30, $green, true)
+        ->drawEllipse(new Point(250, 250), new Size(30, 30), $green, true)
         ->drawPolygon($points, $red)
         ->show();
 }

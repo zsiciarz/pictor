@@ -186,25 +186,27 @@ class Image
         return $this;
     }
 
-    public function drawRectangle($x, $y, $width, $height, $color = null, $fill = false)
+    public function drawRectangle(Point $topLeft, Size $size, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
             $color = new Color($color);
 
         $drawfunc = $fill ? 'imagefilledrectangle' : 'imagerectangle';
-        $drawfunc($this->handle, $x, $y, $x + $width, $y + $height,
+        $drawfunc($this->handle, $topLeft->x, $topLeft->y,
+                  $topLeft->x + $size->width, $topLeft->y + $size->height,
                   $color->allocate($this->handle));
 
         return $this;
     }
 
-    public function drawEllipse($cx, $cy, $width, $height, $color = null, $fill = false)
+    public function drawEllipse(Point $center, Size $size, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
             $color = new Color($color);
 
         $drawfunc = $fill ? 'imagefilledellipse' : 'imageellipse';
-        $drawfunc($this->handle, $cx, $cy, $width, $height,
+        $drawfunc($this->handle, $center->x, $center->y,
+                  $size->width, $size->height,
                   $color->allocate($this->handle));
 
         return $this;
