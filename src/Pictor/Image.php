@@ -105,6 +105,22 @@ class Image
         return imagesy($this->handle);
     }
 
+    /**
+     * Returns the center point of the image.
+     * 
+     * @return Point
+     */
+    public function getCenter()
+    {
+        return new Point($this->getWidth() / 2, $this->getHeight() / 2);
+    }
+
+    /**
+     * Enables or disables line antialiasing.
+     *
+     * @param bool $antialiasing
+     * @return \Pictor\Image for fluent interface
+     */
     public function setAntialiasing($antialiasing = false)
     {
         imageantialias($this->handle,   true);
@@ -151,7 +167,7 @@ class Image
     public function drawRectangle($x, $y, $width, $height, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
-            $color = Color($color);
+            $color = new Color($color);
 
         $drawfunc = $fill ? 'imagefilledrectangle' : 'imagerectangle';
         $drawfunc($this->handle, $x, $y, $x + $width, $y + $height,
@@ -163,7 +179,7 @@ class Image
     public function drawEllipse($cx, $cy, $width, $height, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
-            $color = Color($color);
+            $color = new Color($color);
 
         $drawfunc = $fill ? 'imagefilledellipse' : 'imageellipse';
         $drawfunc($this->handle, $cx, $cy, $width, $height,
@@ -175,7 +191,7 @@ class Image
     public function drawPolygon($points, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
-            $color = Color($color);
+            $color = new Color($color);
 
         $drawfunc = $fill ? 'imagefilledpolygon' : 'imagepolygon';
         $drawfunc($this->handle, $points, count($points) / 2,
