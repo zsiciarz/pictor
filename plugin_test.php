@@ -9,7 +9,7 @@ use \Pictor\Point as Point, \Pictor\Size as Size;
 
 try
 {
-    $img = new \Pictor\Image(new Size(600, 600));
+    $img = new \Pictor\Image(new Size(600, 300));
     $img->drawRectangle(new Point(0, 0), $img->getSize(), '#EEE', true)
         ->show();
 }
