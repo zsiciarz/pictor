@@ -44,5 +44,20 @@ class Size
     {
         return sprintf('Size(width=%d,height=%d)', $this->width, $this->height);
     }
+
+    /**
+     * Allows for quick adjusting of the size (used for margins, borders etc).
+     *
+     * @param int $dx
+     * @param int $dy
+     * @return \Pictor\Size
+     */
+    public function adjust($dx, $dy)
+    {
+        $this->width += $dx;
+        $this->height += $dy;
+
+        return $this;
+    }
 }
 
