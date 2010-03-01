@@ -278,4 +278,15 @@ class Image
 
         return $this;
     }
+
+    public function setPoint(Point $point, $color)
+    {
+        if (!($color instanceof Color))
+            $color = new Color($color);
+
+        imagesetpixel($this->handle, $point->x, $point->y,
+                      $color->allocate($this->handle));
+
+        return $this;
+    }
 }

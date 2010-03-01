@@ -28,6 +28,7 @@ try
         ->filter('contrast', 300)
         ->drawEllipse(new Point(250, 250), new Size(30, 30), $green, true)
         ->drawPolygon($points, $red)
+        ->setPoint(new Point(300 + rand(1, 10), 300 + rand(1, 10)), $green)
         ->show();
 }
 catch (\Pictor\Exception $e)
