@@ -5,12 +5,13 @@ require_once 'src/Pictor/Loader.php';
 $loader = new \Pictor\Loader();
 $loader->register();
 
+use Pictor\Point as Point, Pictor\Size as Size;
+
 try
 {
     $img = new \Pictor\Image();
     $img->load('img/lena.png');
-    $center = $img->getCenter();
-    $img->drawEllipse($center->x, $center->y, 10, 10, '#FF0', true);
+    $img->drawEllipse($img->getCenter(), new Size(10, 10), '#FF0', true);
     $img->show();
 }
 catch (\Pictor\Exception $e)
