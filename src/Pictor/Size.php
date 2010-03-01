@@ -34,5 +34,15 @@ class Size
             $this->height = $h;
         }
     }
+
+    /**
+     * Returns string representation of the Size object.
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('Size(width=%d,height=%d)', $this->width, $this->height);
+    }
 }
 
