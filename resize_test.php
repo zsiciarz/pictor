@@ -12,6 +12,7 @@ try
     $img = new \Pictor\Image();
     $img->load('img/lena.png')
         ->resize(new Size(600, 600))
+        ->crop($img->getCenter()->translate(-100, -100), new Size(200, 200))
         ->show();
 }
 catch (\Pictor\Exception $e)

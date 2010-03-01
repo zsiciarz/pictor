@@ -176,6 +176,18 @@ class Image
         return $this;
     }
 
+    public function crop(Point $topLeft, Size $size)
+    {
+        $img = imagecreatetruecolor($size->width, $size->height);
+        imagecopy($img, $this->handle, 0, 0, $topLeft->x, $topLeft->y,
+                  $size->width, $size->height);
+
+        imagedestroy($this->handle);
+        $this->handle = $img;
+
+        return $this;
+    }
+
     /**
      * Creates a negative image.
      * 

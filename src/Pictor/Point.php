@@ -37,12 +37,15 @@ class Point
      *
      * @param Point|array|int|float $x
      * @param int|float $y
+     * @return \Pictor\Point
      */
     public function translate($x, $y = 0)
     {
         list($x_, $y_) = self::fixArguments($x, $y);
         $this->x += $x_;
         $this->y += $y_;
+
+        return $this;
     }
 
     /**
