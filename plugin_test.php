@@ -11,6 +11,7 @@ try
 {
     $img = new \Pictor\Image(new Size(600, 300));
     $img->drawRectangle(new Point(0, 0), $img->getSize(), '#EEE', true)
+        ->grid(5, 5)
         ->show();
 }
 catch (\Pictor\Exception $e)

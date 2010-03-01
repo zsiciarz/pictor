@@ -289,4 +289,12 @@ class Image
 
         return $this;
     }
+
+    public function __call($name, $arguments)
+    {
+        $method = Plugin::findPlugin($name);
+        array_unshift($arguments, $this, $this->handle);
+        call_user_func_array($method, $arguments);
+        return $this;
+    }
 }
