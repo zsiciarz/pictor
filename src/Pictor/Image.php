@@ -146,6 +146,11 @@ class Image
         return $this;
     }
 
+    /**
+     * Creates a negative image.
+     * 
+     * @return \Pictor\Image for fluent interface
+     */
     public function invert()
     {
         imagefilter($this->handle, IMG_FILTER_NEGATE);
@@ -153,6 +158,13 @@ class Image
         return $this;
     }
 
+    /**
+     * Filters the image through an arbitrary filter.
+     *
+     * @param string $filter
+     * @param mixed $param,... optional filter parameters
+     * @return \Pictor\Image for fluent interface
+     */
     public function filter()
     {
         $args = func_get_args();
