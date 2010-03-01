@@ -23,6 +23,7 @@ try
         ->setAntialiasing(true)
         ->filter('gaussian_blur')
         ->rotate(-33)
+        ->drawLine($img->getCenter(), new Point(0, 0), '#FFF')
         ->drawRectangle(new Point(30, 30), new Size(120, 120), $blue)
         ->filter('contrast', 300)
         ->drawEllipse(new Point(250, 250), new Size(30, 30), $green, true)

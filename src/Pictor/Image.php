@@ -193,6 +193,17 @@ class Image
         return $this;
     }
 
+    public function drawLine(Point $from, Point $to, $color = '000')
+    {
+        if (!($color instanceof Color))
+            $color = new Color($color);
+
+        imageline($this->handle, $from->x, $from->y, $to->x, $to->y,
+                  $color->allocate($this->handle));
+
+        return $this;
+    }
+
     public function drawRectangle(Point $topLeft, Size $size, $color = null, $fill = false)
     {
         if (!($color instanceof Color))
