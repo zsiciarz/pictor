@@ -146,6 +146,22 @@ class Image
     }
 
     /**
+     * Creates the selection - as an independent, new fragment of the image.
+     *
+     * @param Point $topLeft
+     * @param Size $size
+     * @return \Pictor\Image\Selection
+     */
+    public function select(Point $topLeft, Size $size)
+    {
+        $img = imagecreatetruecolor($size->width, $size->height);
+        imagecopy($img, $this->handle, 0, 0, $topLeft->x, $topLeft->y,
+                  $size->width, $size->height);
+
+        return new Image\Selection($img, $this->handle, $this, $topLeft);
+    }
+
+    /**
      * Rotates the image by a given angle.
      * 
      * @param degrees rotation angle
