@@ -10,15 +10,27 @@ namespace Pictor\Image;
 class Selection extends \Pictor\Image
 {
     protected $image = null;
+
+    protected $parentHandle = null;
+
+    protected $topLeft = null;
     
-    public function __construct($handle, \Pictor\Image $image)
+    public function __construct($handle, $parentHandle, \Pictor\Image $image, \Pictor\Point $topLeft)
     {
         $this->handle = $handle;
+        $this->parentHandle = $parentHandle;
         $this->image = $image;
+        $this->topLeft = $topLeft;
     }
 
     public function deselect()
     {
+        imagecopy($this->parentHandle, $this->handle,
+                  $this->topLeft->x, $this->topLeft->y,
+                  0, 0, $this->getWidth(), $this->getHeight());
+
+        imagedestroy($this->handle);
+        $this->handle = null;
 
         return $this->image;
     }
