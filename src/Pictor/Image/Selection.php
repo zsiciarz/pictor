@@ -9,9 +9,18 @@ namespace Pictor\Image;
  */
 class Selection extends \Pictor\Image
 {
-    public function __construct($handle)
+    protected $image = null;
+    
+    public function __construct($handle, \Pictor\Image $image)
     {
         $this->handle = $handle;
+        $this->image = $image;
+    }
+
+    public function deselect()
+    {
+
+        return $this->image;
     }
 }
 

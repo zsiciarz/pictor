@@ -158,7 +158,7 @@ class Image
         imagecopy($img, $this->handle, 0, 0, $topLeft->x, $topLeft->y,
                   $size->width, $size->height);
 
-        return new Image\Selection($img);
+        return new Image\Selection($img, $this);
     }
 
     /**
