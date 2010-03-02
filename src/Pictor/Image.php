@@ -150,6 +150,7 @@ class Image
      *
      * @param Point $topLeft
      * @param Size $size
+     * @return \Pictor\Image\Selection
      */
     public function select(Point $topLeft, Size $size)
     {
@@ -157,6 +158,7 @@ class Image
         imagecopy($img, $this->handle, 0, 0, $topLeft->x, $topLeft->y,
                   $size->width, $size->height);
 
+        return new Image\Selection($img);
     }
 
     /**
