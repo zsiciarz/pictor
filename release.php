@@ -27,7 +27,7 @@ try
     $p->buildFromIterator($iterator, 'src');
 
     $stub = <<<'EOF'
-   <?php
+<?php
 Phar::interceptFileFuncs();
 Phar::mapPhar('Pictor.phar');
 include 'phar://Pictor.phar/Pictor/Loader.php';
@@ -38,11 +38,7 @@ EOF;
     $p->setStub($stub);
 
     $p->stopBuffering();
-    
-//    foreach ($p as $file)
-//    {
-//        echo "$file \n";
-//    }
+
     echo 'Phar file succesfully saved to ', $pharFile, "\n";
 }
 catch (Exception $e)

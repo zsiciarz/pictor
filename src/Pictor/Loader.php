@@ -20,7 +20,7 @@ class Loader
     {
         if (is_null($dir))
         {
-            $dir = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'..');
+            $dir = realpath(dirname(__FILE__).'/..');
         }
         $this->dir = $dir.'/';
     }
