@@ -22,7 +22,7 @@ class Loader
         {
             $dir = realpath(dirname(__FILE__).DIRECTORY_SEPARATOR.'..');
         }
-        $this->dir = $dir.DIRECTORY_SEPARATOR;
+        $this->dir = $dir.'/';
     }
 
     /**
@@ -41,11 +41,11 @@ class Loader
     public function loadClass($className)
     {
         $path = '';
-        if (($pos = strripos($className, DIRECTORY_SEPARATOR)) !== false)
+        if (($pos = strripos($className, '\\')) !== false)
         {
             $ns = substr($className, 0, $pos);
             $className = substr($className, $pos + 1);
-            $path = str_replace('\\', DIRECTORY_SEPARATOR, $ns).DIRECTORY_SEPARATOR;
+            $path = str_replace('\\', '/', $ns).'/';
         }
         $path .= $className.'.php';
         require $this->dir.$path;

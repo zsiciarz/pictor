@@ -2,6 +2,11 @@
 
 include 'dist/Pictor.phar';
 
+//Phar::interceptFileFuncs();
+//include 'phar://dist/Pictor.phar/Pictor/Loader.php';
+//$loader = new \Pictor\Loader('..');
+//$loader->register();
+
 // the code below is copied from plugin_test.php
 use \Pictor\Point as Point, \Pictor\Size as Size;
 

@@ -22,16 +22,16 @@ try
     $p->startBuffering();
     echo 'Starting to create phar file using Phar API v. ', Phar::apiVersion(), "\n";
 
-    $srcPath = realpath(dirname(__FILE__).'/src/Pictor');
+    $srcPath = realpath(dirname(__FILE__).'/src');
     $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($srcPath));
-    $p->buildFromIterator($iterator, 'src/Pictor');
+    $p->buildFromIterator($iterator, 'src');
 
     $stub = <<<'EOF'
    <?php
 Phar::interceptFileFuncs();
 Phar::mapPhar('Pictor.phar');
-include 'phar://Pictor.phar/Loader.php';
-$loader = new \Pictor\Loader('phar:://Pictor.phar');
+include 'phar://Pictor.phar/Pictor/Loader.php';
+$loader = new \Pictor\Loader('..');
 $loader->register();
 __HALT_COMPILER();
 EOF;
