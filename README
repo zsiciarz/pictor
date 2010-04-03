@@ -1,0 +1,30 @@
+What is Pictor?
+===============
+
+Pictor is an image processing library for PHP 5.3+. It will not work in older
+PHP releases. Version 1.0 is still in development. So far the library is just
+a crude OOP wrapper around PHP's GD extension, but hopefully a lot of features
+will be added.
+
+
+Features
+========
+
+ * Reading and writing PNG and JPG images
+ * Drawing geometric primitives
+ * Drawing text
+ * Making selections and drawing only on some parts of the image
+ * A basic plugin interface, making Pictor easy to extend
+
+
+License
+=======
+
+The library is licensed under the MIT (X11) license. A copy of the license
+is distributed with the library in the LICENSE file.
+
+
+Authors
+=======
+
+Zbigniew Siciarz <antyqjon@interia.pl>
