@@ -5,12 +5,17 @@ namespace Pictor;
 /**
  * Color class for all drawing operations.
  *
- * @author Zbyszek
+ * This file is part of the Pictor image processing library.
+ *
+ * @package Pictor
+ * @version 1.0.0-dev
+ * @author Zbigniew Siciarz
+ * @date 2009-2010
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
  */
 class Color
 {
     public $r = 0, $g = 0, $b = 0;
-
 
     /**
      * Converts a HTML/CSS color string (eg. #FF0A60) to RGB values.
@@ -83,6 +88,12 @@ class Color
         list($this->r, $this->g, $this->b) = $colors;
     }
 
+    /**
+     * Allocates the color with a given image resource.
+     * 
+     * @param resource $img
+     * @return int
+     */
     public function allocate($img)
     {
         return imagecolorallocate($img, $this->r, $this->g, $this->b);

@@ -3,12 +3,24 @@
 namespace Pictor;
 
 /**
- * A Plugin interface.
+ * An interface for image plugins.
  *
- * @author Zbyszek
+ * This file is part of the Pictor image processing library.
+ *
+ * @package Pictor
+ * @version 1.0.0-dev
+ * @author Zbigniew Siciarz
+ * @date 2009-2010
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
  */
 abstract class Plugin
 {
+    /**
+     * Looks for a plugin, autoloading the class if it exists.
+     *
+     * @param string $name plugin name
+     * @return callback
+     */
     static public function findPlugin($name)
     {
         $className = __NAMESPACE__.'\\Plugin\\'.ucfirst($name).'Plugin';

@@ -5,10 +5,22 @@ namespace Pictor\Image;
 /**
  * Base class for I/O operations.
  *
- * @author Zbyszek
+ * This file is part of the Pictor image processing library.
+ *
+ * @package Pictor
+ * @version 1.0.0-dev
+ * @author Zbigniew Siciarz
+ * @date 2009-2010
+ * @license http://www.opensource.org/licenses/mit-license.php MIT
  */
 abstract class IO
 {
+    /**
+     * Factory method to create concrete IO objects.
+     * 
+     * @param string $filename
+     * @return \Pictor\Image\IO
+     */
     static public function getIO($filename)
     {
         $parts = pathinfo($filename);
